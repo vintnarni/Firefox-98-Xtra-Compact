@@ -1,8 +1,7 @@
-CSS styles to give firefox a Chicago95 / Windows 95/98 look & feel
-Includes firefox quantum logo* for tabs and homepage. 
+An version of [95/98fox](https://github.com/osem598/Firefox-98) that uses parts of [Xtra Compact](https://github.com/CarterSnich/firefox-xtra-compact) to mix between nostalgia and compact.
 
-![ff95](https://github.com/osem598/Firefox-98/assets/67332812/780f79d7-d26b-4129-be1c-6bb1b4a277ef)
+![ff95](screenshot.png)
 
-**Firefox branding from mozilla. Licence: https://creativecommons.org/licenses/by/3.0/*
+*Firefox quantum branding has been licenced under [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0).*
 
-other colors available in colors.txt file
+Other colors available in colors.txt file
