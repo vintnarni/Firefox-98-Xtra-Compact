@@ -1,6 +1,9 @@
 /* To make color changes, change the variables in both the userChrome AND userContent files */
 
 :root{
+	/* enforce Compact density to custom height */
+	--tab-min-height: 24 !important;
+
 /* NORMAL BROWSING COLORS */
 	--95grey:#c9c9c9;
 	--home-bground:#E5E5E5;
@@ -31,6 +34,110 @@
 	--pb-95concave:inset -1px -1px var(--pb-3d-lightest),inset 1px 1px var(--pb-3d-dark),inset -2px -2px var(--pb-3d-light),inset 2px 2px var(--pb-3d-darkest);
 }
 
+/* Remove top and bottom spaces on tabs, 
+causing additional height on title bar. */
+.tab-background {
+	margin-block: 0 !important;
+}
+
+/* Remove space gaps on in between tabs and left
+and right edges. */
+.tabbrowser-tab {
+	padding: 0 !important;
+}
+
+/* Remove pre-define height on tabs content. */
+html#main-window
+	body
+	toolbox#navigator-toolbox
+	vbox#titlebar
+	toolbar#TabsToolbar.browser-toolbar.titlebar-color
+	hbox.toolbar-items
+	hbox#TabsToolbar-customization-target.customization-target
+	tabs#tabbrowser-tabs
+	arrowscrollbox#tabbrowser-arrowscrollbox
+	tab.tabbrowser-tab
+	stack.tab-stack
+	hbox.tab-content
+	vbox.tab-label-container {
+	height: auto !important;
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+
+/* Remove pre tabs spacer. */
+hbox.titlebar-spacer[type="pre-tabs"] {
+	display: none !important;
+}
+
+/* Decrease padding on tabs. */
+hbox.tab-content {
+	padding-inline: 4px !important;
+}
+
+/* Redesigned the new tab button. */
+toolbarbutton#tabs-newtab-button {
+	margin-inline: 3px !important;
+	border-radius: 4px !important;
+	padding: 0 !important;
+}
+
+/* Add background color to the new tab button,
+instead on the icon when hover. */
+toolbarbutton#tabs-newtab-button:hover {
+	background-color: var(--panel-banner-item-hover-bgcolor) !important;
+}
+toolbarbutton#tabs-newtab-button > image {
+	padding: 3px !important;
+}
+toolbarbutton#tabs-newtab-button > image :hover {
+	background: none !important;
+}
+
+/* Height left and rigth scroll arrows that 
+	appears when there are too many tabs. */
+toolbarbutton#scrollbutton-down,
+toolbarbutton#scrollbutton-up {
+	display: none !important;
+}
+
+/* Remove the dropdown button that appears when 
+there are also too many tabs. */
+toolbarbutton#alltabs-button {
+	display: none !important;
+}
+
+/* Match the tab opacity when window is inactive. */
+toolbar#nav-bar {
+	will-change: auto;
+	transition: opacity var(--inactive-window-transition);
+	border-top: none !important;
+}
+toolbar#nav-bar:-moz-window-inactive {
+	opacity: var(--inactive-titlebar-opacity);
+}
+
+/* Remove gap between title bar and toolbar. */
+toolbar#nav-bar:not([tabs-hidden="true"]) {
+	box-shadow: none !important;
+}
+
+/* Removed bottom border radius on tabs. */
+tab.tabbrowser-tab > stack.tab-stack > vbox.tab-background {
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+
+/* Decrease toolbar height  */
+toolbar#nav-bar {
+	max-height: 26px !important;
+}
+hbox#urlbar {
+	min-height: 22px !important;
+}
+hbox#urlbar:not([focused="true"]) {
+	max-height: 22px !important;
+}
 
 .tabbrowser-tab[label^="New Tab"] .tab-icon-image {
       content: url("ff-std-alt.svg") !important;
